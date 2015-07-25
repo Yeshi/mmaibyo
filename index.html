@@ -1,46 +1,55 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title></title>
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
     <script src="js/socket.io.js"></script>
-    <script>
-      <!--
-      function $(id){
-        return document.getElementById(id);
-      }
-      function $c(name){
-        return document.createElement(name)
-      }
-      function $t(text){
-        return document.createTextNode(text);
-      }
-      
-      function update(url){
-        console.log(url);
-        var debug = $("debug");
-        var piece = $c("div");
-        piece.appendChild($t(url.title));
-        debug.insertBefore(piece, debug.firstChild);
-      }
-
-      var socket = io.connect('http://nodejs-maibyo.rhcloud.com:8000');
-      socket.on('message', function(t) {
-        //console.log('onmessage',t);
-        if(t.type && t.type=="init"){
-          // initialize
-          var urls = t.urls;
-          for(var i = 0; i < Math.min(10,urls.length); i++){
-            update(urls[i])
-          }
-        }else{
-          //console.log(t);
-          update(t);
-        }
-      });
-
-      -->
-    </script>
-  </head>
-  <body>
-    <h1>maibyo</h1>
-    <div id="debug"></div>
-  </body>
+    <script src="js/my.js"></script>
+    <style>
+    body {
+    margin: 0;
+    padding: 0;
+    }
+    h1 {
+    position: fixed;
+    width: 100%;
+    height: 48px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0 15px;
+    background: #333;
+    box-shadow: 0 2px 2px #000;
+    font-size: 20px;
+    line-height: 48px;
+    color: #fff;
+    }
+    #debug {
+    margin-top: 58px;
+    }
+    #debug li {
+    display: inline-block;
+    list-style: none;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    margin: 10px;
+    vertical-align: top;
+    box-shadow: 1px 1px 2px #333;
+    background-color: #666;
+    text-align: center;
+    }
+    #debug li img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    }
+    </style>
+</head>
+<body>
+    <h1>毎秒新聞電子版Smart</h1>
+    <ul id="debug"></ul>
+</body>
 </html>
+
